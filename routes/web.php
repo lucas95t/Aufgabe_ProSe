@@ -20,3 +20,5 @@ Route::get('/termine', 'PagesController@termine');
 Route::get('/verify', 'PagesController@verifydate');
 
 Route::get('/result', 'PagesController@result');
+
+Route::get('/veranstaltungen', 'PagesController@veranstaltungen'); 

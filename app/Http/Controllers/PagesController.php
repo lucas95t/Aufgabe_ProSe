@@ -22,7 +22,11 @@ class PagesController extends Controller
         return view('pruefungstermine');
     }
 
-
+    public function veranstaltungen()
+    {
+        return view('lehrveranstaltungen');
+    }
+    
     public function result()
     {
         return view('result');
@@ -36,7 +40,7 @@ class PagesController extends Controller
          $date = $_GET['inputDate'];
          $we = $check = Input::get('inputWE');
 
-         // Führe die Funktion nur aus Wenn ein Datum eingegeben wurde, else -> gebe einfach das leere View zurück
+         // FÃ¼hre die Funktion nur aus Wenn ein Datum eingegeben wurde, else -> gebe einfach das leere View zurÃ¼ck
          if(!empty ($date)){
 
          $format = "d.m.Y";
@@ -53,7 +57,7 @@ class PagesController extends Controller
    	$date1 = getdate(mktime(0, 0, 0, $monat, $tag, $jahr));
    	$wochentag = $date1['wday'];
 
-   	// Pr�fen, ob Wochenende
+   	// Prüfen, ob Wochenende
    	if($wochentag == 0) {
             $dateValid = false;
    	}
@@ -77,7 +81,7 @@ class PagesController extends Controller
    	$feiertage[] = date("dm", $ostersonntag + 40 * $tage); // Himmelfahrt
    	$feiertage[] = date("dm", $ostersonntag + 51 * $tage); // Pfingstmontag
 
-   	// Pr�fen, ob Feiertag
+   	// Prüfen, ob Feiertag
    	$code = $tag.$monat;
    	if(in_array($code, $feiertage)) {
          $dateValid = false;
@@ -89,7 +93,7 @@ class PagesController extends Controller
           //Musste hier die Variable $semester mit irgendwas initialisiern, falls er keinen passenden Termin findet
           $semester = $item['semester'];
           if (($date >= $item['start']) and ($date <= $item['end'])){
-             // Merke dir ob und für welches Semester das Datum passt
+             // Merke dir ob und fÃ¼r welches Semester das Datum passt
              // Dann verlasse die foreach und such nicht weiter
                 $dateValid = false;
                 break;
@@ -99,7 +103,7 @@ class PagesController extends Controller
           }
           }
           }}
-          // gib das View mit den variablen zurück
+          // gib das View mit den variablen zurÃ¼ck
          return View('pruefungstermine')->with('name',$name)->with('date',$date)->with('termineObj',$termineObj)->with('dateValid',$dateValid)->with('check',$check);
          }
          else {

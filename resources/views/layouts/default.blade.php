@@ -21,7 +21,7 @@
 
 echo URL::to('/start')?>">Start</a></li>
             <li style="border: 1px solid; border-radius: 10px 10px 0px 0px; border-bottom: 0px"><a href="<?php echo URL::to('/termine')?>">Termine</a></li>
-            <li style="border: 1px solid; border-radius: 10px 10px 0px 0px; border-bottom: 0px"><a href="#">Veranstaltungen</a></li>
+            <li style="border: 1px solid; border-radius: 10px 10px 0px 0px; border-bottom: 0px"><a href="<?php echo URL::to('/veranstaltungen')?>">Veranstaltungen</a></li>
             <li style="border: 1px solid; border-radius: 10px 10px 0px 0px; border-bottom: 0px"><a href="#">Einstellungen</a></li>
           </ul>
 
